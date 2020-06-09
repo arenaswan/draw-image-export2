@@ -1,12 +1,12 @@
 const middy = require('@middy/core')
 const chromium = require('chrome-aws-lambda');
 const doNotWaitForEmptyEventLoop = require('@middy/do-not-wait-for-empty-event-loop');
-const httpUrlencodeBodyParser = require('@middy/http-urlencode-body-parser');
 const zlib = require('zlib');
 const fetch = require('node-fetch');
 const crc = require('crc');
 const hummus = require('hummus');
 const memoryStreams = require('memory-streams');
+const {parse} = require('querystring');
 
 const MAX_AREA = 15000 * 15000;
 const PNG_CHUNK_IDAT = 1229209940;
@@ -254,6 +254,15 @@ async function handleRequest(req)
 	  if (req.body == null) 
 	  {
 		  req.body = {}
+	  }
+	  else
+	  {
+		if (req.isBase64Encoded)
+        {
+          req.body = Buffer.from(req.body, 'base64').toString('ascii');
+        }
+		
+		req.body = parse(req.body);
 	  }
 
 	  const executablePath = process.env.IS_OFFLINE
@@ -761,5 +770,4 @@ async function handleRequest(req)
 };
 
 export const generate = middy(handleRequest)
-							.use(doNotWaitForEmptyEventLoop())
-							.use(httpUrlencodeBodyParser());
+							.use(doNotWaitForEmptyEventLoop());

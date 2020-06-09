@@ -12,10 +12,7 @@ provider:
     IS_OFFLINE: ${opt:offline}
   apiGateway:
     binaryMediaTypes:
-      - "application/pdf"
-      - "image/png"
-      - "image/jpeg"
-      - "image/jpg"
+      - "*/*"
 plugins:
   - serverless-webpack
 #  - serverless-domain-manager
@@ -57,10 +54,6 @@ functions:
           path: export
           method: get
           cors: true
-          request:
-            parameters:
-              querystrings:
-                url: true
   
   export-post:
 #    provisionedConcurrency: 2
@@ -72,7 +65,4 @@ functions:
           path: export
           method: post
           cors: true
-          request:
-            parameters:
-              querystrings:
-                url: true
+          
