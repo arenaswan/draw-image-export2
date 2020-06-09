@@ -7,6 +7,8 @@ const crc = require('crc');
 const hummus = require('hummus');
 const memoryStreams = require('memory-streams');
 const {parse} = require('querystring');
+const path = require('path');
+const fs = require('fs');
 
 const MAX_AREA = 15000 * 15000;
 const PNG_CHUNK_IDAT = 1229209940;
@@ -251,6 +253,16 @@ async function handleRequest(req)
 
   try
   {
+	  //Load our fonts
+	  var fontsDir = path.join(__dirname, 'fonts');
+	  var fontFiles = fs.readdirSync(fontsDir);
+
+  	  //listing all files using forEach
+	  for (var i = 0; i < fontFiles.length; i++)
+	  {
+		await chromium.font(path.join(fontsDir, fontFiles[i]));
+	  }
+
 	  if (req.body == null) 
 	  {
 		  req.body = {}

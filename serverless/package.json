@@ -9,26 +9,25 @@
     "serverless": "sls offline start --port 3003 --stage dev --basePath / --prefix dev --location .webpack/service --offline"
   },
   "dependencies": {
-    "@middy/core": "^1.0.0-beta",
-    "@middy/do-not-wait-for-empty-event-loop": "^1.0.0-beta",
-    "@middy/http-urlencode-body-parser": "^1.0.0",
-    "aws-lambda": "^1.0.4",
-    "chrome-aws-lambda": "^2.0.2",
+    "@middy/core": "^1.0.0",
+    "@middy/do-not-wait-for-empty-event-loop": "^1.0.0",
+    "aws-lambda": "^1.0.6",
+    "chrome-aws-lambda": "^3.1.1",
     "hummus": "^1.0.108",
     "memory-streams": "^0.1.3",
-    "puppeteer-core": "^2.0.0",
-    "serverless": "1.60.5",
-    "serverless-offline": "v6.0.0-alpha.59",
+    "puppeteer-core": "^3.3.0",
+    "serverless": "1.72.0",
+    "serverless-offline": "v6.4.0",
     "xmldom": "^0.3.0",
     "crc": "^3.8.0",
-    "node-fetch": "^2.5.0",
+    "node-fetch": "^2.6.0",
     "@types/aws-lambda": "^8.10.53"
   },
   "devDependencies": {
-    "serverless-domain-manager": "^3.3.0",
-    "serverless-webpack": "^5.3.1",
-    "puppeteer": "^2.0.0",
-    "webpack": "^4.41.5",
+    "serverless-domain-manager": "^4.1.1",
+    "serverless-webpack": "^5.3.2",
+    "puppeteer": "^3.3.0",
+    "webpack": "^4.43.0",
     "webpack-node-externals": "^1.7.2"
   }
 }

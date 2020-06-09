@@ -1,5 +1,5 @@
 service: serverless-lambda-chrome
-frameworkVersion: "1.60.5"
+frameworkVersion: "1.72.0"
 
 provider:
   name: aws
