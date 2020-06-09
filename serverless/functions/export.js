@@ -633,9 +633,9 @@ async function handleRequest(req)
 
 					resp = {
 						statusCode: 200,
-						isBase64Encoded: true,
+						isBase64Encoded: !base64encoded,
 						headers: headers,
-						body: data.toString("base64")
+						body: base64encoded? data : data.toString("base64")
 					};
 				}
 				else if (req.body.format == 'pdf')
@@ -680,9 +680,9 @@ async function handleRequest(req)
 					console.info("Success " + reqStr + " dt=" + dt);
 					resp = {
 						statusCode: 200,
-						isBase64Encoded: true,
+						isBase64Encoded: !base64encoded,
 						headers: headers,
-						body: data.toString("base64")
+						body: base64encoded? data : data.toString("base64")
 					};
 				}
 				else 
