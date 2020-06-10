@@ -253,16 +253,6 @@ async function handleRequest(req)
 
   try
   {
-	  //Load our fonts
-	  var fontsDir = path.join(__dirname, 'fonts');
-	  var fontFiles = fs.readdirSync(fontsDir);
-
-  	  //listing all files using forEach
-	  for (var i = 0; i < fontFiles.length; i++)
-	  {
-		await chromium.font(path.join(fontsDir, fontFiles[i]));
-	  }
-
 	  if (req.body == null) 
 	  {
 		  req.body = {}
@@ -510,7 +500,7 @@ async function handleRequest(req)
 				}, 30000);
 				
 				const page = await browser.newPage();
-				await page.goto((process.env.DRAWIO_SERVER_URL || 'https://www.draw.io') + '/export3.html', {waitUntil: 'networkidle0'});
+				await page.goto((process.env.DRAWIO_SERVER_URL || 'file://' + process.cwd() + '/renderer') + '/export3.html', {waitUntil: 'networkidle0'});
 				
 				async function rederPage(pageIndex)
 				{
