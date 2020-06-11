@@ -19,16 +19,16 @@
 		  body.mxPage { background: gray; }
 		}
 	</style>
-	<link rel="stylesheet" href="common.css" charset="UTF-8" type="text/css">
+	<link rel="stylesheet" href="https://app.diagrams.net/mxgraph/css/common.css" charset="UTF-8" type="text/css">
 	<link rel="stylesheet" href="fonts.css" charset="UTF-8" type="text/css">
-    <script src="app.min.js"></script>
+    <script src="https://app.diagrams.net/js/app.min.js"></script>
 	<script>
 		var mxIsElectron = navigator.userAgent != null &&
 			navigator.userAgent.toLowerCase().indexOf(' electron/') > -1;
 		var GOOGLE_APPS_MAX_AREA = 25000000;
 		var GOOGLE_SHEET_MAX_AREA = 1048576; //1024x1024
 		
-		Editor.initMath('math/MathJax.js');
+		Editor.initMath('https://app.diagrams.net/math/MathJax.js');
 	
 		function render(data)
 		{
